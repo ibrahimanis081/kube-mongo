@@ -48,11 +48,9 @@ terraform init
 terraform apply
 ```
 The full set of provisioning should be completed in under 5 minutes.
-A kubernetes configuration file called `config` should be generated in the current directory, move it `home/user/.kube/` for kubectl to access the cluster
-```bash
-mv config ~/.kube/
-```
-confirm it's properly set up by running
+A kubernetes configuration file called `config` is generated and copied to `~/.kube/` directory for kubectl to access the cluster
+
+Confirm it's properly set up by running
  ``` bash 
  kubectl get node
  ```

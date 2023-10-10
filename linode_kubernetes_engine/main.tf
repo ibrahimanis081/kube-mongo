@@ -24,3 +24,14 @@ resource "linode_lke_cluster" "personal_cluster" {
     }
 }
 
+resource "null_resource" "copy_files" {
+  triggers = {
+    always_run = "${timestamp()}"
+    }
+
+  provisioner "local-exec" {
+    command = "cp ${var.source_path} ${var.destination_path}"
+  }
+  depends_on = [ linode_lke_cluster.personal_cluster ]
+}
+
